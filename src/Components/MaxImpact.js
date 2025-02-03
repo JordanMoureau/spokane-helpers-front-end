@@ -30,11 +30,11 @@ export default function MaxImpact() {
           Your generosity has the power to create max impact in the lives of
           those who need it most.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4   gap-8">
           {maxImpactDonations.map((donation) => (
             <div
               key={donation.amount}
-              className="bg-white rounded-lg shadow-lg p-6"
+              className="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center"
             >
               <h3 className="text-2xl font-bold text-deep mb-2">
                 ${donation.amount}

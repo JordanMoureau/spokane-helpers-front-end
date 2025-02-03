@@ -6,6 +6,7 @@ import InfoSection from "../Components/InfoSection";
 import VolunteerSection from "../Components/VolunteerSection";
 import DonationImpact from "../Components/DonationImpact";
 import MaxImpact from "../Components/MaxImpact";
+import FloatingMemberButton from "../Components/FloatingMemberButton";
 
 export default function HomePage() {
   return (
@@ -16,7 +17,7 @@ export default function HomePage() {
       <DonationImpact />
       <VolunteerSection />
       <MaxImpact />
-
+      <FloatingMemberButton />
       <Footer />
     </div>
   );
