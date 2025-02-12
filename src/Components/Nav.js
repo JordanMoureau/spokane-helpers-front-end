@@ -6,10 +6,14 @@ export default function NavBar() {
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Left side: Logo */}
         <div className="flex items-center space-x-6">
-          <img src={logo} alt="Logo" className="h-20" />
-          <span className="text-xl font-bold text-deep">
-            Spokane Helpers Network
-          </span>
+          <a href="/">
+            <img src={logo} alt="Logo" className="h-20" />{" "}
+          </a>
+          <a href="/">
+            <span className="text-xl font-bold text-deep">
+              Spokane Helpers Network
+            </span>
+          </a>
         </div>
 
         {/* Right side: Links and CTA */}
@@ -23,7 +27,7 @@ export default function NavBar() {
           <a href="/admin" className="hover:underline">
             About Us
           </a>
-          <a href="/admin" className="hover:underline">
+          <a href="/news" className="hover:underline">
             News
           </a>
           <button className="px-6 py-2 bg-peach text-deep font-bold rounded-lg hover:bg-deep hover:text-white">

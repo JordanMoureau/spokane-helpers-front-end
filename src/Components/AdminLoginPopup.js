@@ -1,17 +1,39 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AdminLoginPopup({ onClose }) {
+export default function AdminLoginPopup({ setIsAuthenticated }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (username === "admin" && password === "admin") {
-      navigate("/content-management"); // Redirect to CMS page
-    } else {
-      setError("Invalid credentials. Please try again.");
+  const loginUser = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (!response.ok) {
+        setError(`Login failed: ${response.statusText}`);
+        return;
+      }
+
+      const data = await response.json();
+
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        setIsAuthenticated(true); // ✅ Now this should work!
+
+        setTimeout(() => {
+          navigate("/content-management");
+        }, 100);
+      } else {
+        setError("Login failed. No token received.");
+      }
+    } catch (error) {
+      setError("Server error. Please try again later.");
     }
   };
 
@@ -40,16 +62,10 @@ export default function AdminLoginPopup({ onClose }) {
         </div>
         <div className="flex justify-between">
           <button
-            onClick={handleLogin}
-            className="px-6 py-2 bg-deep text-white rounded-lg hover:bg-lighter"
+            onClick={loginUser}
+            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
           >
             Login
-          </button>
-          <button
-            onClick={onClose}
-            className="px-6 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
-          >
-            Cancel
           </button>
         </div>
       </div>
