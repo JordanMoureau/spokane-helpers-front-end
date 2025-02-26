@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# CMS Project README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+A simple CMS designed for a local charity, aimed at boosting visibility and donations. The system allows admins to post news updates with images and, in future iterations, manage resource listings for people in need.
 
-In the project directory, you can run:
+## Current Status: MVP
 
-### `npm start`
+- Editable news feed with text and images.
+- Admin dashboard for creating, editing, and deleting posts.
+- Fully functional content management system using React (frontend) & Rails (backend).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## In Progress
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Editable resource listings to help individuals find assistance.
+- SEO optimization for better search visibility.
+- Functional forms for user engagement.
+- Social media feed integration to amplify reach.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Frontend: React (Create React App), Tailwind CSS
+- Backend: Ruby on Rails, PostgreSQL, JWT Authentication
+- Deployment: Heroku (backend), Netlify (frontend)
 
-### `npm run build`
+## Installation & Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend (Rails API)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+# Clone the repo
+git clone <repo-url>
+cd backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+bundle install
 
-### `npm run eject`
+# Setup database
+rails db:create db:migrate db:seed
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Start the Rails server
+rails s
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend (React App - Create React App)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+# Navigate to the frontend folder
+cd frontend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Install dependencies
+yarn install OR npm install
 
-## Learn More
+# Start the development server
+yarn start OR npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Key Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- News Posting System: Admins can create, edit, and delete news posts with images.
+- Simple, clean UI: Optimized for ease of use.
+- Full CRUD functionality: Built with Rails API and React.
+- JWT Authentication: Secure login for admin users.
 
-### Code Splitting
+## Challenges & Lessons Learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### State Management Complexity
 
-### Analyzing the Bundle Size
+Initially, state was being passed in too many different directions, leading to unnecessary re-renders and complexity. We streamlined prop drilling and introduced state lifting to make data flow more predictable.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### CRUD Performance with Rails API
 
-### Making a Progressive Web App
+Ensuring seamless CRUD operations while preventing unnecessary API calls required careful handling of optimistic UI updates and fetch strategies.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Next Steps
 
-### Advanced Configuration
+- Deploy backend to Heroku
+- Deploy frontend to Netlify
+- Enhance SEO and add analytics
+- Implement authentication for admin users
+- Expand content features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributors
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Jordan Moureau - [Website](https://jordanmoureau.com)

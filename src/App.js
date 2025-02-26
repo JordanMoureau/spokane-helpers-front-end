@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import ContentManagement from "./Pages/ContentManagement";
 import NewsPage from "./Pages/News";
-import AdminLoginPage from "./Pages/AdminLoginPage"; // ✅ New dedicated login page
+import AdminLoginPage from "./Pages/AdminLoginPage";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import VolunteerPage from "./Pages/Volunteer";
+import AboutUs from "./Pages/AboutUs";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -16,6 +18,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/volunteer" element={<VolunteerPage />} />
+        <Route path="/aboutus" element={<AboutUs />} />
 
         {/* ✅ Dedicated Login Page */}
         <Route
@@ -23,11 +27,14 @@ export default function App() {
           element={<AdminLoginPage setIsAuthenticated={setIsAuthenticated} />}
         />
 
-        {/* ✅ Protected Route for Content Management */}
+        {/* ✅ Protected Routes */}
         <Route
           path="/content-management"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <ProtectedRoute
+              isAuthenticated={isAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
+            >
               <ContentManagement setIsAuthenticated={setIsAuthenticated} />
             </ProtectedRoute>
           }

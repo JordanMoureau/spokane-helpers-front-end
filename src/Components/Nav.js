@@ -21,10 +21,10 @@ export default function NavBar() {
           <a href="/admin" className="hover:underline">
             Get Help
           </a>
-          <a href="/admin" className="hover:underline">
+          <a href="/volunteer" className="hover:underline">
             Volunteer
           </a>
-          <a href="/admin" className="hover:underline">
+          <a href="/aboutus" className="hover:underline">
             About Us
           </a>
           <a href="/news" className="hover:underline">
