@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   // Fetch news posts from API
   useEffect(() => {
-    fetch("http://localhost:3000/api/v1/news")
+    fetch("https://spokane-helpers-3895ae38ae4d.herokuapp.com/api/v1/news")
       .then((res) => res.json())
       .then((data) => setNewsPosts(data))
       .catch((error) => console.error("Error fetching news:", error));
@@ -20,7 +20,7 @@ export default function Dashboard() {
     if (window.confirm("Are you sure you want to delete this news post?")) {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/v1/news/${id}`,
+          `https://spokane-helpers-3895ae38ae4d.herokuapp.com/api/v1/news/${id}`,
           {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },

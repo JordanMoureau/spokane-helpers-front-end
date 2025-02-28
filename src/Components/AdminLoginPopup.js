@@ -9,11 +9,14 @@ export default function AdminLoginPopup({ setIsAuthenticated }) {
 
   const loginUser = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/v1/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://spokane-helpers-3895ae38ae4d.herokuapp.com/api/v1/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       if (!response.ok) {
         setError(`Login failed: ${response.statusText}`);

@@ -11,7 +11,9 @@ export default function EditPost({ id }) {
     console.log("Post ID received in EditPost:", id); // Debugging output
     if (!id) return;
 
-    fetch(`http://localhost:3000/api/v1/news/${id}`)
+    fetch(
+      `https://spokane-helpers-3895ae38ae4d.herokuapp.com/api/v1/news/${id}`
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch post data");
@@ -40,11 +42,14 @@ export default function EditPost({ id }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/news/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://spokane-helpers-3895ae38ae4d.herokuapp.com/api/v1/news/${id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         alert("News post updated!");
