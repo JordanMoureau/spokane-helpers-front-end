@@ -8,7 +8,7 @@ function NewsPage() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/v1/news", {
+    fetch("https://spokane-helpers-3895ae38ae4d.herokuapp.com/api/v1/news", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
